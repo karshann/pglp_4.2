@@ -24,6 +24,7 @@ public class MoteurRPN extends Interpreteur {
     public void Enregistrer(double i) throws OutOfBoundsException {
 
         if (Math.abs(i) <= MAX_VALUE) {
+            this.setPilePrec((Stack<Double>) this.getPileact().clone());
             getPileact().add(i);
         }
         else throw new OutOfBoundsException();
@@ -37,6 +38,7 @@ public class MoteurRPN extends Interpreteur {
     public void Application(Operation op) throws OutOfBoundsException {
         double i = 0;
         if (getPileact().size() > 1) {
+            this.setPilePrec((Stack<Double>) this.getPileact().clone());
            i = op.eval(getPileact().pop(), getPileact().pop());
 
             if (Math.abs(i) > MAX_VALUE) throw new OutOfBoundsException();
@@ -59,12 +61,8 @@ public class MoteurRPN extends Interpreteur {
      */
     public void affichepile() {
 
-        String s = new String();
-        for (Double d: getPileact()) {
-            s = s + d + " ";
-        }
-        System.out.println(s);
-
+        System.out.println("Pile precedente" + this.getPilePrec());
+        System.out.println(("Pile nouvelle" + this.getPileact()));
     }
 
 

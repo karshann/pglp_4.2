@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.Stack;
 
 public class CommandeEnregistrer implements Commande {
 
@@ -35,10 +34,8 @@ public class CommandeEnregistrer implements Commande {
      *
      */
     @Override
-    public void execute() {
-        this.moteurRPN.setPilePrec((Stack<Double>) this.moteurRPN.getPileact().clone());
-        this.moteurRPN.getPileact().push(value);
-        System.out.println("Pile precedente" + this.moteurRPN.getPilePrec());
-        System.out.println(("Pile nouvelle" + this.moteurRPN.getPileact()));
+    public void execute() throws OutOfBoundsException {
+        this.moteurRPN.Enregistrer(value);
+        this.moteurRPN.affichepile();
     }
 }

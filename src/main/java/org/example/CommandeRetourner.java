@@ -20,12 +20,17 @@ public class CommandeRetourner implements Commande {
         this.moteurRPN = moteur;
     }
 
+    public Stack<Double> getPile() {
+        return pile;
+    }
+
     /**
      *
      */
     @Override
     public void execute() {
 
-        this.pile = this.moteurRPN.getPileact();
+        this.pile = this.moteurRPN.RetourPile();
+        this.moteurRPN.affichepile();
     }
 }

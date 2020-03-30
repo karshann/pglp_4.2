@@ -11,13 +11,14 @@ public class Interpreteur {
      * pilePrec = pile prec par rapport de la saisie actuelle.
      */
 
-    private Stack<Double> pilePrec;
+    private Stack<Stack<Double>> pilePrec;
 
     /**
      * Constructeur de la class Interpreteur.
      */
     public Interpreteur() {
         this.pileact = new Stack<Double>();
+        this.pilePrec = new Stack<Stack<Double>>();
     }
 
     /**
@@ -25,7 +26,7 @@ public class Interpreteur {
      *
      */
     public void undo() {
-        pileact = pilePrec;
+        pileact = pilePrec.pop();
     }
 
     /**
@@ -48,7 +49,7 @@ public class Interpreteur {
      * @param pilePrec
      */
     public void setPilePrec(Stack<Double> pilePrec) {
-        this.pilePrec = pilePrec;
+        this.pilePrec.push(pilePrec);
     }
 
     /**
@@ -64,6 +65,6 @@ public class Interpreteur {
      * @return pilePrec
      */
     public Stack<Double> getPilePrec() {
-        return pilePrec;
+        return pilePrec.peek();
     }
 }

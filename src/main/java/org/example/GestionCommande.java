@@ -34,10 +34,9 @@ public class GestionCommande {
      *
      * @param name
      */
-    public void execCommande(String name) {
+    public void execCommande(String name) throws OutOfBoundsException {
         if (this.commandes.containsKey(name)) {
             this.commandes.get(name).execute();
-            System.out.println(this.Moteur.getPileact().toString());
         }
     }
 

@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.EmptyStackException;
+
 public enum CalculatriceRPN {
 
     CALCULATRICE_RPN;
@@ -23,7 +25,7 @@ public enum CalculatriceRPN {
      * @throws PileException
      * @throws OutOfBoundsException
      */
-    public static void main(String[] args) throws PileException, OutOfBoundsException {
+    public static void main(String[] args) throws PileException, OutOfBoundsException , EmptyStackException {
         CALCULATRICE_RPN.run();
     }
 }

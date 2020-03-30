@@ -4,14 +4,14 @@ public class CommandeUndo implements Commande {
     /**
      *
      */
-    private Interpreteur inter;
+    private MoteurRPN moteurRPN;
 
     /**
      *
-     * @param inter
+     * @param moteurRPN
      */
-    public CommandeUndo(Interpreteur inter) {
-        this.inter = inter;
+    public CommandeUndo(MoteurRPN moteurRPN) {
+        this.moteurRPN = moteurRPN;
     }
 
     /**
@@ -19,6 +19,7 @@ public class CommandeUndo implements Commande {
      */
     @Override
     public void execute() {
-        this.inter.undo();
+        this.moteurRPN.undo();
+        this.moteurRPN.affichepile();
     }
 }

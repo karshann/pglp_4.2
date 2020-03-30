@@ -3,7 +3,7 @@ package org.example;
 public interface Commande {
 
 
-    public void execute();
+    public void execute() throws OutOfBoundsException;
 
 
 }

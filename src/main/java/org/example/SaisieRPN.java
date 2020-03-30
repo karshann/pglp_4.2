@@ -30,11 +30,10 @@ public class SaisieRPN {
     /**
      *
      */
-    public void Entree() {
+    public void Entree() throws OutOfBoundsException {
 
         String s = new String();
         s = this.scanner.nextLine();
-        System.out.println(s);
         if (s.length() == 1 && Operation.verif_Operation(s)) {
             this.Gc.setOperation(Operation.valeur(s));
             this.Gc.execCommande("calcul");
